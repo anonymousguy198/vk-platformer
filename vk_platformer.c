@@ -19,7 +19,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "vk/main.c"
+
+#ifndef VK_
 
 int
 main (int argc,char *argv[]){
