@@ -4,7 +4,7 @@ VULKAN= -lvulkan
 FILE = plat
 
 vk_platformer: Makefile vk_platformer.c
-	gcc vk_platformer.c vk/main.c -lglfw -lvulkan -o $(FILE)
+	gcc vk_platformer.c vk/main.c -lglfw -lvulkan -I VK -o $(FILE)
 
 clean:
 	rm -f $(FILE)

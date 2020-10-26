@@ -20,10 +20,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef VK_
+#ifndef MAIN_c
+#define MAIN_C
+#endif
 
-int
-main (int argc,char *argv[]){
+int main (int argc,char *argv[]){
     printf ("By arydev\n");
 
     create_instance();
