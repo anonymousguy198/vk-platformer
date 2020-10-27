@@ -71,7 +71,7 @@ bool HasRequierdExts(const VkPhysicalDevice device, const char** required_extent
 return true;
 }
 
-bool GetQueueFamily(const VkPhysicalDevice physical_device, VkQueueFlags required_queue_flags, uint32_t queue_family_index);{
+bool GetQueueFamily(const VkPhysicalDevice physical_device, VkQueueFlags required_queue_flags, uint32_t queue_family_index){
 
 
     return true;
@@ -87,8 +87,8 @@ void select_device(){
     vkEnumeratePhysicalDevices(instance,&device_count,&GPUs);
 
     // Device extension
-    uint32_t ext_count=1;
-    const char *device_extensions[ext_count] = { VK_KHR_SWAPCHAIN_EXTENSION_NAME };
+    const char *device_extensions[] = { VK_KHR_SWAPCHAIN_EXTENSION_NAME };
+    uint32_t ext_count=sizeof (device_extensions);
 
     //selected device
     VkPhysicalDevice chosen_physical_device = VK_NULL_HANDLE;
@@ -100,11 +100,11 @@ void select_device(){
     ///// Choicing the device
     for (int i = 0 ; i < device_count; i++){
         //Cecking extensions
-        if (HasRequierdExts(devices[i], device_extensions, extention_count)){
+        if (HasRequierdExts(GPUs[i], device_extensions, ext_count)){
 
             //ceking the que families
             uint32_t queue_family;
-            if (GetQueueFamily(devices[i], VkQueueFlagBits::VK_QUEUE_GRAPHICS_BIT, queue_family)){
+            if (GetQueueFamily(GPUs[i], VkQueueFlagBits::VK_QUEUE_GRAPHICS_BIT, queue_family)){
 
                 VkPhysicalDeviceProperties physical_device_properties;
                 vkGetPhysicalDeviceProperties(GPUs[i],&physical_device_properties);
