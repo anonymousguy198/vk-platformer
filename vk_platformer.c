@@ -28,6 +28,10 @@ int main (int argc,char *argv[]){
     printf ("By arydev\n");
 
     create_instance();
+    // Update
+
+    //exit
+    vkClear();
 
 
     return EXIT_SUCCESS;
