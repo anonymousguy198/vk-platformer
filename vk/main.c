@@ -28,7 +28,7 @@ void create_instance(){
     info.enabledLayerCount = sizeof(instance_layers);
     info.ppEnabledLayerNames = instance_layers;
 
-    VkResult result = VkCreateInstance(
+    VkResult result = vkCreateInstance(
         &info,
         NULL,
         &instance
