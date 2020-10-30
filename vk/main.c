@@ -33,12 +33,6 @@ void create_instance(){
 
     VkResult result = vkCreateInstance(&info,NULL,&instance);
 
-    ////////////////////////////////////////
-    ///// Finished setting up Instance /////
-    ////////////////////////////////////////
-
-
-
     printf("intsance created sucesifuly :%d",result == VK_SUCCESS);
 }
 
@@ -118,7 +112,7 @@ void select_device(){
 
 
                 if (chosen_physical_device == VK_NULL_HANDLE || chosen_physical_device != VK_NULL_HANDLE && physical_device_properties.deviceType == VkPhysicalDeviceType.VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU){
-                    chosen_physical_device = devices[i];
+                    chosen_physical_device = GPUs[i];
                     chosen_physical_devices_queue_family = queue_family;
                     chosen_physical_device_properties = physical_device_properties;
                     chosen_physical_device_features = physical_device_features;
