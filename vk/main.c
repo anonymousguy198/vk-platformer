@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 VkInstance instance;
 
 typedef enum{
@@ -33,7 +34,8 @@ void create_instance(){
 
     VkResult result = vkCreateInstance(&info,NULL,&instance);
 
-    printf("intsance created sucesifuly :%d",result == VK_SUCCESS);
+    printf("intsance created sucesifuly :%d \n",result == VK_SUCCESS);
+
 }
 
 /*
@@ -98,7 +100,7 @@ void select_device(){
 
             //ceking the que families
             uint32_t queue_family;
-            if (GetQueueFamily(GPUs[i], VkQueueFlagBits::VK_QUEUE_GRAPHICS_BIT, queue_family)){
+            if (GetQueueFamily(GPUs[i], VK_QUEUE_GRAPHICS_BIT, queue_family)){
 
                 VkPhysicalDeviceProperties physical_device_properties;
                 vkGetPhysicalDeviceProperties(GPUs[i],&physical_device_properties);
@@ -111,7 +113,7 @@ void select_device(){
                 vkGetPhysicalDeviceMemoryProperties(GPUs[i],&physical_device_mem_properties);
 
 
-                if (chosen_physical_device == VK_NULL_HANDLE || chosen_physical_device != VK_NULL_HANDLE && physical_device_properties.deviceType == VkPhysicalDeviceType.VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU){
+                if (chosen_physical_device == VK_NULL_HANDLE || chosen_physical_device != VK_NULL_HANDLE && physical_device_properties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU){
                     chosen_physical_device = GPUs[i];
                     chosen_physical_devices_queue_family = queue_family;
                     chosen_physical_device_properties = physical_device_properties;

@@ -19,19 +19,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include  "vk/vk.h"
 
-#ifndef MAIN_c
-#define MAIN_C
+#ifndef VK_H
+#define VK_H
 #endif
 
 int main (int argc,char *argv[]){
     printf ("By arydev\n");
 
-    create_instance();
-    // Update
-
-    //exit
-    vkClear();
+    run();
 
 
     return EXIT_SUCCESS;
